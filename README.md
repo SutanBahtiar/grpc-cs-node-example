@@ -1,9 +1,9 @@
 # grpc-cs-node-example
-Grpc Client Server Node js Example
+grpc client server node js example
 
 
     docker-compose up -d
     
     docker-compose logs -f
     
-    curl http://localhost/grpc
+    curl http://localhost:3000/grpc
