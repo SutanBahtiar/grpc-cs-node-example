@@ -10,7 +10,7 @@ grpc client server node js example
     
 # docker image
     
-https://hub.docker.com/repository/docker/sutanirojim/grpc-server-nodejs-example
+https://hub.docker.com/r/sutanirojim/grpc-server-nodejs-example
     
-https://hub.docker.com/repository/docker/sutanirojim/grpc-client-nodejs-example
+https://hub.docker.com/r/sutanirojim/grpc-client-nodejs-example
 
