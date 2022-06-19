@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grpc-client-ingress
+  labels:
+    name: grpc-client-ingress
+spec:
+  rules:
+  - host: grpc.client.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: grpc-client-service
+            port: 
+              number: 8080

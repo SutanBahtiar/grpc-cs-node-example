@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grpc-client
+  labels:
+    name: grpc-client
+spec:
+  containers:
+  - name: grpc-client
+    image: sutanirojim/grpc-client-nodejs-example
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3000

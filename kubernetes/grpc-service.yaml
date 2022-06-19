@@ -1,0 +1,60 @@
+apiVersion : apps/v1
+kind: ReplicaSet
+metadata:
+  name: grpc-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: grpc-server
+  template:
+    metadata:
+      name: grpc-server
+      labels:
+        name: grpc-server
+    spec:
+      containers:
+        - name: grpc-server
+          image: sutanirojim/grpc-server-nodejs-example
+          ports:
+            - containerPort: 50051
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-server-service
+spec:
+  selector:
+    name: grpc-server
+  ports:
+    - port: 8080
+      targetPort: 50051
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-client-service
+spec:
+  selector:
+    name: grpc-client
+  ports:
+    - port: 8080
+      targetPort: 3000
+
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grpc-client
+  labels:
+    name: grpc-client
+spec:
+  containers:
+    - name: grpc-client
+      image: sutanirojim/grpc-client-nodejs-example

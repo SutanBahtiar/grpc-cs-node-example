@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: grpc-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: grpc-server
+  template:
+    metadata:
+      name: grpc-server
+      labels:
+        name: grpc-server
+    spec:
+      containers:
+        - name: grpc-server
+          image: sutanirojim/grpc-server-nodejs-example
+          ports:
+            - containerPort: 50051
